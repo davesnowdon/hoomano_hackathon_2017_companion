@@ -300,7 +300,7 @@ class MyClass(GeneratedClass):
 
     def onInput_onStop(self):
         self.onUnload() #~ it is recommended to call onUnload of this box in a onStop method, as the code written in onUnload is used to stop the box as well
-        pass]]></content></script><Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" /><Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" /><Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" /><Output name="onStopped" type="0" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished. It contains the retrieved value from ALMemory." id="4" /><Output name="onError" type="3" type_size="1" nature="1" inner="0" tooltip="Output when error is raised by the behavior. Contains the error message." id="5" /><Parameter name="key" inherits_from_parent="0" content_type="3" value="Companion/reminder/text" default_value="MyApplication/MyData" custom_choice="0" tooltip="" id="6" /></Box><Box name="Wait" id="6" localization="8" tooltip="Wait a moment before sending a signal on the output. &#x0A;Can be stopped anytime. &#x0A;Stimulating the input again before output is activated restarts the waiting period.&#x0A;" x="223" y="52"><bitmap>media/images/box/wait.png</bitmap><script language="4"><content><![CDATA[class MyClass(GeneratedClass):
+        pass]]></content></script><Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" /><Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" /><Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" /><Output name="onStopped" type="0" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished. It contains the retrieved value from ALMemory." id="4" /><Output name="onError" type="3" type_size="1" nature="1" inner="0" tooltip="Output when error is raised by the behavior. Contains the error message." id="5" /><Parameter name="key" inherits_from_parent="0" content_type="3" value="Companion/reminder/text" default_value="MyApplication/MyData" custom_choice="0" tooltip="" id="6" /></Box><Box name="Wait" id="6" localization="8" tooltip="Wait a moment before sending a signal on the output. &#x0A;Can be stopped anytime. &#x0A;Stimulating the input again before output is activated restarts the waiting period.&#x0A;" x="673" y="67"><bitmap>media/images/box/wait.png</bitmap><script language="4"><content><![CDATA[class MyClass(GeneratedClass):
     def __init__(self):
         GeneratedClass.__init__(self, False)
 
@@ -326,4 +326,58 @@ class MyClass(GeneratedClass):
     def onInput_onStop(self):
         if self.getParameter("Trigger timerOutput if cancelled") and self.waiting and self.waiting.isRunning():
             self.timerOutput()
-        self.onUnload()]]></content></script><Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" /><Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Start the Wait box with the configured timeout value." id="2" /><Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Stop the wait and stimulate the output." id="3" /><Output name="timerOutput" type="1" type_size="1" nature="1" inner="0" tooltip="Send a bang once time set in parameters is elapsed, or if the box is stopped and the appropriate parameter is set." id="4" /><Parameter name="Timeout (s)" inherits_from_parent="0" content_type="2" value="0.5" default_value="1" min="0" max="5000" tooltip="Duration the box waits before stimulating the output." id="5" /><Parameter name="Trigger timerOutput if cancelled" inherits_from_parent="0" content_type="0" value="0" default_value="1" tooltip="If the box is currently waiting and cancelled, output will be stimulated." id="6" /></Box><Link inputowner="1" indexofinput="2" outputowner="2" indexofoutput="4" /><Link inputowner="2" indexofinput="7" outputowner="3" indexofoutput="4" /><Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="1" /><Link inputowner="6" indexofinput="2" outputowner="0" indexofoutput="1" /><Link inputowner="2" indexofinput="2" outputowner="6" indexofoutput="4" /></Diagram></BehaviorKeyframe></BehaviorLayer><BehaviorLayer name="dialog"><BehaviorKeyframe name="dialog" index="10"><Diagram><Box name="companion" id="1" localization="8" tooltip="" x="100" y="118"><dialogFile>../companion/companion.dlg</dialogFile><bitmap>media/images/box/box-dialog.png</bitmap><script language="4"><content><![CDATA[]]></content></script><Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" /><Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" /><Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" /><Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" /></Box><Link inputowner="1" indexofinput="2" outputowner="0" indexofoutput="1" /></Diagram></BehaviorKeyframe></BehaviorLayer></Timeline></Box><Link inputowner="1" indexofinput="2" outputowner="0" indexofoutput="2" /><Link inputowner="0" indexofinput="4" outputowner="1" indexofoutput="4" /></Diagram></BehaviorKeyframe></BehaviorLayer></Timeline></Box></ChoregrapheProject>
+        self.onUnload()]]></content></script><Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" /><Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Start the Wait box with the configured timeout value." id="2" /><Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Stop the wait and stimulate the output." id="3" /><Output name="timerOutput" type="1" type_size="1" nature="1" inner="0" tooltip="Send a bang once time set in parameters is elapsed, or if the box is stopped and the appropriate parameter is set." id="4" /><Parameter name="Timeout (s)" inherits_from_parent="0" content_type="2" value="0.5" default_value="1" min="0" max="5000" tooltip="Duration the box waits before stimulating the output." id="5" /><Parameter name="Trigger timerOutput if cancelled" inherits_from_parent="0" content_type="0" value="0" default_value="1" tooltip="If the box is currently waiting and cancelled, output will be stimulated." id="6" /></Box><Box name="Wait for WebPage Load FromManifestID" id="12" localization="8" tooltip="Shows the webview (html content) on the tablet.&#x0A;&#x0A;V1.0.0&#x0A;" x="240" y="46"><bitmap>media/images/box/internet/internet.png</bitmap><script language="4"><content><![CDATA[class MyClass(GeneratedClass):
+
+    def __init__(self):
+        GeneratedClass.__init__(self)
+        self.startConnectId = None
+        self.tabletService = None
+    def onLoad(self):
+        pass
+
+    def onUnload(self):
+        self.disconnectStartedListener()
+        pass
+
+    def _getTabletService(self):
+        self.tabletService = None
+        try:
+            self.tabletService = self.session().service("ALTabletService")
+        except Exception as e:
+            self.logger.error(e)
+        return self.tabletService
+
+    def onInput_onStart(self):
+        # We create TabletService here in order to avoid
+        # problems with connections and disconnections of the tablet during the life of the application
+        self.tabletService = self._getTabletService()
+        if self.tabletService:
+            try:
+                self.startConnectId = self.tabletService.onPageFinished.connect(self.CallbackTest)
+            except Exception as err:
+                self.logger.warning("Failed to subscribe to started callback: %s " % err)
+                self.onStopped()
+            fmPage = ALFrameManager.getBehaviorPath(self.behaviorId)
+            BehaviourID = fmPage.split("/apps/")[1].split("/")[0]
+            showPage = "http://198.18.0.1/apps/" + BehaviourID + "/" + self.getParameter("url")
+
+            self.logger.info("BehaviourID:" + BehaviourID)
+            self.logger.info("Show Webpage:" + showPage)
+            self.tabletService.showWebview(showPage)
+
+        else:
+            self.logger.warning("ALTabletService not found.")
+        pass
+
+    def CallbackTest(self):
+        self.logger.info("Callback fired")
+        self.disconnectStartedListener()
+        self.onPageLoaded()
+
+    def disconnectStartedListener(self):
+        if self.startConnectId and self.tabletService:
+            try:
+                self.tabletService.onPageFinished.disconnect(self.startConnectId)
+                self.startConnectId = None
+            except Exception as e:
+                self.logger.error(e)]]></content></script><Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" /><Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" /><Output name="onPageLoaded" type="1" type_size="1" nature="1" inner="0" tooltip="" id="3" /><Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" /><Parameter name="url" inherits_from_parent="0" content_type="3" value="index.html" default_value="" custom_choice="0" tooltip="" id="5" /></Box><Link inputowner="1" indexofinput="2" outputowner="2" indexofoutput="4" /><Link inputowner="2" indexofinput="7" outputowner="3" indexofoutput="4" /><Link inputowner="3" indexofinput="2" outputowner="0" indexofoutput="1" /><Link inputowner="12" indexofinput="2" outputowner="0" indexofoutput="1" /><Link inputowner="2" indexofinput="2" outputowner="12" indexofoutput="3" /></Diagram></BehaviorKeyframe></BehaviorLayer><BehaviorLayer name="dialog"><BehaviorKeyframe name="dialog" index="10"><Diagram><Box name="companion" id="1" localization="8" tooltip="" x="100" y="118"><dialogFile>../companion/companion.dlg</dialogFile><bitmap>media/images/box/box-dialog.png</bitmap><script language="4"><content><![CDATA[]]></content></script><Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" /><Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" /><Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" /><Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" /></Box><Link inputowner="1" indexofinput="2" outputowner="0" indexofoutput="1" /></Diagram></BehaviorKeyframe></BehaviorLayer></Timeline></Box><Link inputowner="1" indexofinput="2" outputowner="0" indexofoutput="2" /><Link inputowner="0" indexofinput="4" outputowner="1" indexofoutput="4" /></Diagram></BehaviorKeyframe></BehaviorLayer></Timeline></Box></ChoregrapheProject>

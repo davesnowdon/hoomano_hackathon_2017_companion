@@ -1,0 +1,170 @@
+/*Typography first e.g.*/
+body{
+font-size:30px;
+font-family: 'Roboto', sans-serif;
+font-weight: 300!important;
+color: #b0b3ba;
+
+/* Make everything unselectable */
+-webkit-touch-callout: none; /* iOS Safari */
+-webkit-user-select: none; /* Chrome/Safari/Opera */
+-khtml-user-select: none; /* Konqueror */
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* Internet Explorer/Edge */
+user-select: none; /* Non-prefixed version, currently
+not supported by any browser */
+}
+
+h1{
+font-size: 200%;
+color: #000;
+text-align: center;
+}
+
+h2{
+font-size: 150%;
+color: #000;
+}
+
+p{
+Font-size: 100%;	
+}
+
+/*Eurisko  Mobile 1st  - Initial styles are applicable to ALL devices*/
+
+.PepperContainer{
+width: 962px;
+height: 601px;	
+position: relative;
+}
+
+.BGImage{
+position: absolute;
+top: 0;
+left: 0;
+z-index: -1;	
+}
+
+.page{
+position:absolute;
+top: 0;
+left: -3000px;
+opacity: 0;
+transition: opacity 2s;
+width: 100%;
+height: 100%;	
+}
+
+.active{
+opacity: 1;
+left: 0;
+}
+
+#resetBtn {
+    bottom: 0;
+    height: 60px;
+    padding: 0 10px 10px 0;
+    position: absolute;
+    right: 0;
+    width: 60px;
+	z-index: 2;
+}
+
+/* Project Specific Styles */
+
+#default .WelcomeTo {
+    margin-bottom: 35px;
+    margin-top: 70px;
+    text-align: center;
+}
+
+#default .Logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#default .TouchImage {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 130px;
+}
+
+.TouchHere {
+    color: #effeff;
+    text-align: center;
+}
+
+.item {
+    display: inline-block;
+    font-size: 75%;
+    margin: 10px;
+    text-align: center;
+    width: 200px;
+	color: #000;
+}
+.item1 {
+    display: inline-block;
+    font-size: 75%;
+    /*margin: 10px;*/
+    text-align: center;
+    margin-left:auto;
+    margin-right:auto;
+    /*width: 200px;*/
+	color: #000;
+}
+
+.item img {
+    border: 4px solid #000;
+    border-radius: 50%;
+    width: 100%;
+}
+.item1 img {
+    border: 4px solid #000;
+    border-radius: 50%;
+    width: 100%;
+}
+
+.ItemContainer {
+    text-align: center;
+}
+
+#Delivery > img {
+    height: 100%;
+    margin-top: -20px;
+    width: 100%;
+	border-radius: 15px;
+}
+
+#Delivery {
+    padding: 50px;
+}
+
+#TellMeYourName img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+}
+
+.buttonContainer {
+    margin-top: 139px;
+    text-align: center;
+}
+
+.buttonContainer .btn {
+    border: 4px solid #000;
+    border-radius: 17px;
+    color: #000;
+    font-size: 250%;
+    margin: 0 15px;
+    padding: 10px 73px;
+    width: auto;
+}
+
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 5s, opacity 5s linear;
+}

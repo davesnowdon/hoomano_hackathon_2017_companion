@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1">
+    <title>BASE TEMPLATE</title>
+    <!-- Bootstrap CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <!-- Adaptive site specific CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="css/adaptive.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="PepperContainer">
+        <img class="BGImage" src="images/background.jpg" />
+        <div id="resetBtn"><img src="images/reset.png" />
+        </div>
+
+        <div id="Family" class="page active">
+            <h1> </h1>
+            <div class="ItemContainer">
+                <div class="item" data-fireEvent="MemG/personanswer" data-item="Alex">
+                    <img id="Alex" src="images/alex.jpg" class="fake" />
+                </div>
+
+                <div  class="item" data-fireEvent="MemG/personanswer" data-item="Lydie">
+                    <img id="Lydie" src="images/lydie.jpg" class="fake"/>
+                </div>
+                <div class="item" data-fireEvent="MemG/personanswer" data-item="Chris">
+                    <img id="Chris" src="images/chris.jpg" class="fake"/>
+                </div>
+            </div>
+        </div>
+
+        <div id="AppointmentWith" class="page">
+            <h1>Who do you have an appointment with?</h1>
+            <div class="ItemContainer" id="Employees">
+            </div>
+        </div>
+
+        <div id="Delivery" class="page">
+            <img src="images/Map.jpg" />
+        </div>
+
+        <div id="TellMeYourName" class="page">
+            <h1>What is your name?</h1>
+            <img src="images/mynameis.png" />
+        </div>
+
+        <div id="AppointmentToSee" class="page">
+            <h1></h1>
+            <div class="buttonContainer">
+                <div class="btn" data-fireEvent="ERReceptionist/YesBtn">Yes</div>
+                <div class="btn" data-fireEvent="ERReceptionist/NoBtn">No</div>
+            </div>
+        </div>
+
+
+
+        <div id="AlexPage1" class="page">
+            <h1>Alex</h1>
+            <div class="ItemContainer">
+                <div class="item1" >
+                    <img src="images/alex_1.jpg" style="width:75%; height:auto;"/>
+                </div>
+            </div>
+        </div>
+          <div id="AlexPage2" class="page">
+            <h1>Alex</h1>
+            <div class="ItemContainer">
+                <div class="item1" >
+                    <img src="images/alex_2.jpg" style="width:75%; height:auto;"/>
+                </div>
+            </div>
+        </div>
+        <div id="AlexPage3" class="page">
+            <h1>Alex</h1>
+            <div class="ItemContainer">
+                <div class="item1" >
+                    <img src="images/final.jpg"  style="width:75%; height:auto;"/>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="LydiePage1" class="page">
+            <h1>Lydie</h1>
+            <div class="ItemContainer">
+                <div class="item1" >
+                    <img src="images/lydie_1.jpg" style="width:75%; height:auto;"/>
+                </div>
+            </div>
+        </div>
+          <div id="LydiePage2" class="page">
+            <h1>Lydie</h1>
+            <div class="ItemContainer">
+                <div class="item1" >
+                    <img src="images/lydie_2.jpg" style="width:75%; height:auto;"/>
+                </div>
+            </div>
+        </div>
+        <div id="LydiePage3" class="page">
+            <h1>Lydie</h1>
+            <div class="ItemContainer">
+                <div class="item1" >
+                    <img src="images/final.jpg" style="width:75%; height:auto;" />
+                </div>
+            </div>
+        </div>
+
+          <div id="ChrisPage1" class="page">
+            <h1>Chris</h1>
+            <div class="ItemContainer">
+                <div class="item1" >
+                    <img src="images/chris_1.jpg" style="width:75%; height:auto;"/>
+                </div>
+            </div>
+        </div>
+          <div id="ChrisPage2" class="page">
+            <h1>Chris</h1>
+            <div class="ItemContainer">
+                <div class="item1" >
+                    <img src="images/chris_2.jpg" style="width:75%; height:auto;"/>
+                </div>
+            </div>
+        </div>
+        <div id="ChrisPage3" class="page">
+            <h1>Chris</h1>
+            <div class="ItemContainer">
+                <div class="item1" >
+                    <img src="images/final.jpg" style="width:75%; height:auto;" />
+                </div>
+            </div>
+        </div>
+
+        <div id="AboutEmotionRobotics" class="page">
+            <h1>Would you like to know more about Emotion Robotics?</h1>
+            <div class="buttonContainer">
+                <div class="btn" data-fireEvent="ERReceptionist/YesBtn">Yes</div>
+                <div class="btn" data-fireEvent="ERReceptionist/NoBtn">No</div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- Pepper Script for Tablet -->
+    <script src="/libs/qimessaging/2/qimessaging.js"></script>
+    <!-- Adaptive site specific -->
+    <script src="js/adaptive.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script>
+        $(function() {
+            FastClick.attach(document.body);
+        });
+    </script>
+</body>
+
+</html>
