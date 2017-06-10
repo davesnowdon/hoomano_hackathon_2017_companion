@@ -6,9 +6,6 @@
  <descriptions>
   <description lang="en_US">A companion application for people with dementia. The  robot will remind people of important tasks such as having breakfast and taking medication as well as any planned events such as visitors</description>
  </descriptions>
- <supportedLanguages>
-  <language>en_US</language>
- </supportedLanguages>
  <descriptionLanguages>
   <language>en_US</language>
  </descriptionLanguages>
