@@ -106,7 +106,6 @@
         <File name="glyphicons-halflings-regular" src="html/fonts/glyphicons-halflings-regular.svg" />
         <File name="glyphicons-halflings-regular" src="html/fonts/glyphicons-halflings-regular.ttf" />
         <File name="glyphicons-halflings-regular" src="html/fonts/glyphicons-halflings-regular.woff" />
-        <File name="Logo" src="html/images/Logo.png" />
         <File name="Map" src="html/images/Map.jpg" />
         <File name="alex" src="html/images/alex.jpg" />
         <File name="alex_1" src="html/images/alex_1.jpg" />
@@ -114,19 +113,14 @@
         <File name="appointment" src="html/images/appointment.jpg" />
         <File name="background-wood" src="html/images/background-wood.jpg" />
         <File name="background" src="html/images/background.jpg" />
-        <File name="carlHeadshot" src="html/images/carlHeadshot.jpg" />
         <File name="chris" src="html/images/chris.jpg" />
         <File name="chris_1" src="html/images/chris_1.jpg" />
         <File name="chris_2" src="html/images/chris_2.jpg" />
         <File name="delivery" src="html/images/delivery.jpg" />
         <File name="final" src="html/images/final.jpg" />
-        <File name="katieheadshot" src="html/images/katieheadshot.jpg" />
-        <File name="lizheadshot" src="html/images/lizheadshot.jpg" />
-        <File name="lukeHeadshot" src="html/images/lukeHeadshot.jpg" />
         <File name="lydie" src="html/images/lydie.jpg" />
         <File name="lydie_1" src="html/images/lydie_1.jpg" />
         <File name="lydie_2" src="html/images/lydie_2.jpg" />
-        <File name="mynameis" src="html/images/mynameis.png" />
         <File name="originalMap" src="html/images/originalMap.png" />
         <File name="reset" src="html/images/reset.png" />
         <File name="touchtostart" src="html/images/touchtostart.png" />
@@ -135,6 +129,7 @@
         <File name="bootstrap.min" src="html/js/bootstrap.min.js" />
         <File name="fastclick" src="html/js/fastclick.js" />
         <File name="jquery.min" src="html/js/jquery.min.js" />
+        <File name="medicine" src="html/images/medicine.jpg" />
     </Resources>
     <Topics>
         <Topic name="companion_enu" src="companion/companion_enu.top" topicName="companion" language="en_US" />

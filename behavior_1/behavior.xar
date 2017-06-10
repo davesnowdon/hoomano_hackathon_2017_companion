@@ -185,11 +185,14 @@ class MyClass(GeneratedClass):
 
     def onInput_onStart(self):
         self.logger.info(os.path.normpath(ALFrameManager.getBehaviorPath(self.behaviorId)))
-        appt = self.get_appointments()
-        if len(appt) > 0 and appt[0]['countdown'] < 60:
-            self.logger.info("Event in less than one hour {}".format(appt[0]['summary']))
-            prompt = 'In ' + str(appt[0]['countdown']) + ' minutes ' + str(appt[0]['summary'])
+        appts = self.get_appointments()
+        if len(appts) > 0 and appts[0]['countdown'] < 60:
+            appt = appts[0]
+            self.logger.info("Event in less than one hour {}".format(appt['summary']))
+            time_prompt = 'In ' + str(appt['countdown']) + ' minutes ' if appt['use_time'] else ''
+            prompt = time_prompt + str(appt['summary'])
             self.memory.insertData('Companion/reminder/text', str(prompt))
+            self.memory.insertData('Companion/reminder/image', str(appt['image']))
             self.onEvents() # signal that there is an event in near future
         else:
             self.onStopped() # signal no events
@@ -217,22 +220,102 @@ class MyClass(GeneratedClass):
         self.logger.info("{} events found".format(len(Events)))
         #self.logger.info("{} events ".format(Events))
         AppointmentList = []
-
         now = datetime.now(cst)
         if(len(Events) > 0):
             for item in Events:
-                start = parser.parse(item['start']['dateTime'])
-                end = parser.parse(item['end']['dateTime'])
-                td =  start - now
-                t = td.seconds
-                minutes = t / 60
-                self.logger.info("In {} minutes {}".format(minutes, item['summary']))
-                if start > now:
-                   AppointmentList.append({'start' : start, 'end' : end, 'summary' : item['summary'], 'countdown' : minutes})
+                event = self.parse_event(now, item)
+                if event and event['start'] > now:
+                    self.logger.info("In {} minutes {}".format(event['countdown'], event['summary']))
+                    AppointmentList.append(event)
+
             AppointmentList = sorted(AppointmentList, key=lambda k: k['countdown'])
         else:
             self.logger.info("No Events in the calendar")
-        return AppointmentList]]></content></script><Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" /><Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" /><Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" /><Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" /><Output name="onEvents" type="1" type_size="1" nature="2" inner="0" tooltip="" id="5" /></Box><Box name="Goto (name) (1)" id="4" localization="8" tooltip="Jump to the frame name set in parameters." x="262" y="78"><bitmap>media/images/box/box-timeLine.png</bitmap><script language="4"><content><![CDATA[class MyClass(GeneratedClass):
+        return AppointmentList
+
+    def parse_event(self, now, item):
+        start = parser.parse(item['start']['dateTime'])
+        end = parser.parse(item['end']['dateTime'])
+        td =  start - now
+        minutes = td.seconds / 60
+        event = self.parse_description(item)
+        if event:
+            event.update({'start' : start,
+                          'end' : end,
+                          'countdown' : minutes})
+        return event
+
+    def parse_description(self, item):
+        event_types = {'visitor' : self.parse_visitor,
+                       'wake' : self.parse_wake,
+                       'sleep' : self.parse_sleep,
+                       'meal' : self.parse_meal,
+                       'medicine' : self.parse_medicine}
+
+        desc = item['description'].split('|')
+        event_type = desc[0].lower()
+        if event_type in event_types.keys():
+            try:
+                return event_types[event_type](desc)
+            except IndexError:
+                self.logger.info("Event {} had wrong number of parameters".format(item['description']))
+                return None
+        else:
+            self.logger.info("Unknown event type {}".format(event_type))
+            return None
+
+    def parse_visitor(self, e):
+        visitor_types = ['family', 'doctor', 'helper']
+        subtype = e[1].lower()
+        if subtype in visitor_types:
+            if subtype == 'family':
+                return {'type' : 'visitor',
+                        'use_time' : True,
+                        'subtype' : subtype,
+                        'name' : e[2],
+                        'relationship' : e[3],
+                        'image' : e[2].lower() + '.jpg',
+                        'summary' : "{} your {} will visit".format(e[2], e[3])}
+            else:
+                return {'type' : 'visitor',
+                        'use_time' : True,
+                        'subtype' : subtype,
+                        'image' : subtype.lower() + '.jpg',
+                        'summary' : 'your {} will come to see you'.format(subtype)}
+        else:
+            self.logger.info("Unknown visitor type {}".format(subtype))
+            return None
+
+    def parse_wake(self, e):
+        return {'type' : 'wake',
+                'use_time' : False,
+                'image' : 'wake.jpg',
+                'summary' : 'Good morning! I am Pepper, your robot. I will help you have a good day'}
+
+    def parse_sleep(self, e):
+        return {'type' : 'sleep',
+                'use_time' : False,
+                'image' : 'sleep.jpg',
+                'summary' : "It's time to sleep! I wish you sweet dreams"}
+
+    def parse_meal(self, e):
+        meal_types = ['breakfast', 'lunch', 'dinner']
+        subtype = e[1].lower()
+        if subtype in meal_types:
+            return {'type' : 'meal',
+                    'use_time' : True,
+                    'subtype' : subtype,
+                    'image' : subtype.lower() + '.jpg',
+                    'summary' : "will be time for {}".format(subtype)}
+        else:
+            self.logger.info("Unknown meal type {}".format(subtype))
+            return None
+
+    def parse_medicine(self, e):
+        return {'type' : 'medicine',
+                'use_time' : True,
+                'image' : 'medicine.jpg',
+                'summary' : 'it will be time to take your medicine'}]]></content></script><Input name="onLoad" type="1" type_size="1" nature="0" inner="1" tooltip="Signal sent when diagram is loaded." id="1" /><Input name="onStart" type="1" type_size="1" nature="2" inner="0" tooltip="Box behavior starts when a signal is received on this input." id="2" /><Input name="onStop" type="1" type_size="1" nature="3" inner="0" tooltip="Box behavior stops when a signal is received on this input." id="3" /><Output name="onStopped" type="1" type_size="1" nature="1" inner="0" tooltip="Signal sent when box behavior is finished." id="4" /><Output name="onEvents" type="1" type_size="1" nature="2" inner="0" tooltip="" id="5" /></Box><Box name="Goto (name) (1)" id="4" localization="8" tooltip="Jump to the frame name set in parameters." x="262" y="78"><bitmap>media/images/box/box-timeLine.png</bitmap><script language="4"><content><![CDATA[class MyClass(GeneratedClass):
     def __init__(self):
         GeneratedClass.__init__(self, False)
 
