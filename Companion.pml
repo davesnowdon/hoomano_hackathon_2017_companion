@@ -4,9 +4,13 @@
     <BehaviorDescriptions>
         <BehaviorDescription name="behavior" src="behavior_1" xar="behavior.xar" />
     </BehaviorDescriptions>
-    <Dialogs />
+    <Dialogs>
+        <Dialog name="companion" src="companion/companion.dlg" />
+    </Dialogs>
     <Resources />
-    <Topics />
+    <Topics>
+        <Topic name="companion_enu" src="companion/companion_enu.top" topicName="companion" language="en_US" />
+    </Topics>
     <IgnoredPaths />
     <Translations auto-fill="en_US">
         <Translation name="translation_en_US" src="translations/translation_en_US.ts" language="en_US" />
