@@ -128,7 +128,6 @@
         <File name="lunch" src="html/images/lunch.jpg" />
         <File name="wake" src="html/images/wake.jpg" />
         <File name="event_cheat_sheet" src="event_cheat_sheet.txt" />
-        <File name="event_cheat_sheet" src="event_cheat_sheet.txt~" />
         <File name="helper" src="html/images/helper.jpg" />
         <File name="sleep" src="html/images/sleep.jpg" />
     </Resources>
@@ -136,9 +135,9 @@
         <Topic name="companion_enu" src="companion/companion_enu.top" topicName="companion" language="en_US" />
     </Topics>
     <IgnoredPaths>
-        <Path src="behavior_1/oauth2client/util.pyc" />
         <Path src="behavior_1/test_calender.py~" />
         <Path src="behavior_1/six.pyc" />
-        <Path src="behavior_1/oauth2client/client.pyc" />
+        <Path src="behavior_1/oauth2client/util.pyc" />
+        <Path src="translations" />
     </IgnoredPaths>
 </Package>
