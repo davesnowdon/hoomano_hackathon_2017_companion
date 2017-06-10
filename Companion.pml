@@ -121,7 +121,6 @@
         <File name="lydie" src="html/images/lydie.jpg" />
         <File name="lydie_1" src="html/images/lydie_1.jpg" />
         <File name="lydie_2" src="html/images/lydie_2.jpg" />
-        <File name="originalMap" src="html/images/originalMap.png" />
         <File name="reset" src="html/images/reset.png" />
         <File name="touchtostart" src="html/images/touchtostart.png" />
         <File name="index" src="html/index.html" />
@@ -130,6 +129,13 @@
         <File name="fastclick" src="html/js/fastclick.js" />
         <File name="jquery.min" src="html/js/jquery.min.js" />
         <File name="medicine" src="html/images/medicine.jpg" />
+        <File name="breakfast" src="html/images/breakfast.jpg" />
+        <File name="dinner" src="html/images/dinner.jpg" />
+        <File name="doctor" src="html/images/doctor.jpg" />
+        <File name="helper" src="html/images/helper.png" />
+        <File name="lunch" src="html/images/lunch.jpg" />
+        <File name="sleep" src="html/images/sleep.png" />
+        <File name="wake" src="html/images/wake.jpg" />
     </Resources>
     <Topics>
         <Topic name="companion_enu" src="companion/companion_enu.top" topicName="companion" language="en_US" />
