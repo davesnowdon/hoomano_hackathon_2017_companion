@@ -22,8 +22,11 @@ $(document).ready(function() {
     var questionName = ""
     session.service("ALMemory").then(function(memory) {
         //Events
-        memory.getData("MemG/selectedPerson").then(function (data) {
-          $("#Family h1").text("Can you find a picture of " + data + "?");
+        memory.getData("Companion/reminder/image").then(function (data) {
+            $("#reminder_image").attr("src", "images/" + data);
+          });
+        memory.getData("Companion/reminder/text").then(function (data) {
+          $("#reminder_title").text(data);
           });
 
         $("body").click(function() {
@@ -43,7 +46,7 @@ $(document).ready(function() {
         $("#Employees").on('click', '.item', function() {
             memory.raiseEvent("ERReceptionist/AppointmentWith", $(this).attr("data-name").toString());
         });
-        memory.subscriber("TabletView").then(function(subscriber) {
+        /*memory.subscriber("TabletView").then(function(subscriber) {
             subscriber.signal.connect(function(page) {
                 if (page == "wrongAnswer") {  
                     $("#"+selectedPic).addClass("hidden")
@@ -52,7 +55,7 @@ $(document).ready(function() {
                 $(".active").removeClass("active");
                 $("#" + page).addClass("active");
             });
-        });
+        });*/
     }, function(error) {
         console.log("An error occurred:", error);
     });

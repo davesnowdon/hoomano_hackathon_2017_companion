@@ -1,0 +1,11 @@
+Wake
+Meal|Breakfast
+Visitor|family|Lydie|granddaughter
+Visitor|family|Alex|grandson
+Visitor|family|Chris|son in law
+Meal|Lunch
+Visitor|doctor
+Visitor|helper
+Medicine
+Meal|dinner
+Sleep
