@@ -189,7 +189,12 @@ class MyClass(GeneratedClass):
         if len(appts) > 0 and appts[0]['countdown'] < 60:
             appt = appts[0]
             self.logger.info("Event in less than one hour {}".format(appt['summary']))
-            time_prompt = 'In ' + str(appt['countdown']) + ' minutes ' if appt['use_time'] else ''
+            time_prompt = ''
+            if appt['use_time']:
+                if appt['countdown'] < 1:
+                    time_prompt = 'Now '
+                else:
+                    time_prompt = 'In ' + str(appt['countdown']) + ' minutes '
             prompt = time_prompt + str(appt['summary'])
             self.memory.insertData('Companion/reminder/text', str(prompt))
             self.memory.insertData('Companion/reminder/image', str(appt['image']))
