@@ -83,9 +83,24 @@
         <File name="xsrfutil" src="behavior_1/oauth2client/xsrfutil.py" />
         <File name="xsrfutil" src="behavior_1/oauth2client/xsrfutil.pyc" />
         <File name="six" src="behavior_1/six.py" />
+        <File name="test_calender" src="behavior_1/test_calender.py" />
+        <File name="__init__" src="behavior_1/dateutil/__init__.py" />
+        <File name="easter" src="behavior_1/dateutil/easter.py" />
+        <File name="parser" src="behavior_1/dateutil/parser.py" />
+        <File name="relativedelta" src="behavior_1/dateutil/relativedelta.py" />
+        <File name="rrule" src="behavior_1/dateutil/rrule.py" />
+        <File name="tz" src="behavior_1/dateutil/tz.py" />
+        <File name="tzwin" src="behavior_1/dateutil/tzwin.py" />
+        <File name="__init__" src="behavior_1/dateutil/zoneinfo/__init__.py" />
+        <File name="zoneinfo-2010g.tar" src="behavior_1/dateutil/zoneinfo/zoneinfo-2010g.tar.gz" />
     </Resources>
     <Topics>
         <Topic name="companion_enu" src="companion/companion_enu.top" topicName="companion" language="en_US" />
     </Topics>
-    <IgnoredPaths />
+    <IgnoredPaths>
+        <Path src="behavior_1/oauth2client/util.pyc" />
+        <Path src="behavior_1/test_calender.py~" />
+        <Path src="behavior_1/six.pyc" />
+        <Path src="behavior_1/oauth2client/client.pyc" />
+    </IgnoredPaths>
 </Package>
