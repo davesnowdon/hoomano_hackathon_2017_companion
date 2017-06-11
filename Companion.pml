@@ -135,9 +135,9 @@
         <Topic name="companion_enu" src="companion/companion_enu.top" topicName="companion" language="en_US" />
     </Topics>
     <IgnoredPaths>
-        <Path src="behavior_1/test_calender.py~" />
         <Path src="behavior_1/six.pyc" />
         <Path src="behavior_1/oauth2client/util.pyc" />
         <Path src="translations" />
+        <Path src="behavior_1/test_calender.py~" />
     </IgnoredPaths>
 </Package>
